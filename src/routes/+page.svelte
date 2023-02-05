@@ -34,6 +34,6 @@
 			alt="2 doctors with a heart"
 			class="max-w-[70%] md:max-w-[40%] xl:max-w-[30%]"
 		/>
-		<p class="text-3xl mt-[10%]">In curand in Oradea</p>
+		<p class="text-3xl mt-[5%]">In curand in Oradea</p>
 	</div>
 {/if}
