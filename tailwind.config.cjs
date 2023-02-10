@@ -1,6 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-	content: ['./src/routes/**/*.{svelte,js,ts}', './src/routes/*.{svelte,js,ts}'],
+	content: [
+		'./src/lib/components/*.svelte',
+		'./src/lib/components//modal/*.svelte',
+		'./src/routes/**/*.{svelte,js,ts}',
+		'./src/routes/*.{svelte,js,ts}',
+	],
 	theme: {
 		extend: {}
 	},
@@ -17,7 +22,7 @@ module.exports = {
 					info: '#3ABFF8',
 					success: '#36D399',
 					warning: '#facc15',
-					error: '#f87171'
+					error: '#F50057'
 				}
 			}
 		]
