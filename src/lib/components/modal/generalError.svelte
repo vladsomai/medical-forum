@@ -8,5 +8,5 @@
 		In acest moment nu putem procesa cererea dvs., va rugam reveniti mai tarziu sau contactati-ne
 		direct.
 	</p>
-	<img src={ErrorImg} class="h-3/6 w-3/6 mt-10" alt="medical research" />
+	<img src={ErrorImg} class="h-3/6 w-3/6 mt-10" alt="error" />
 </div>

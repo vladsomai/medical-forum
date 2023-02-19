@@ -4,7 +4,10 @@
 
 <div class="w-full h-full flex flex-col justify-center items-center">
 	<h3 class="text-3xl my-5">Eroare!</h3>
-	<p class="text-center">Parolele introduse nu corespund.</p>
-	<p class="text-center">Te rugam sa introduci aceeasi parola in ambele campuri.</p>
+	<p class="text-center">Nu am putut sa trimitem email de verificare.</p>
+	<p class="text-center">
+		Contul tau a fost creat insa nu am putut sa iti trimitem un email pentru verificare, te rugam sa
+		ne contactezi telefonic.
+	</p>
 	<img src={ErrorImg} class="h-3/6 w-3/6 mt-10" alt="error" />
 </div>

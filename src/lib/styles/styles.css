@@ -8,16 +8,12 @@
 	}
 }
 
-pre::-webkit-scrollbar,
-code::-webkit-scrollbar,
-div::-webkit-scrollbar,
+/* div::-webkit-scrollbar,
 body::-webkit-scrollbar {
 	width: 7px;
 	height: 7px;
 }
 
-pre::-webkit-scrollbar-track,
-code::-webkit-scrollbar-track,
 div::-webkit-scrollbar-track,
 body::-webkit-scrollbar-track {
 	-webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
@@ -25,13 +21,11 @@ body::-webkit-scrollbar-track {
 	background-color: rgba(0,0,0,0);
 }
 
-pre::-webkit-scrollbar-thumb,
-code::-webkit-scrollbar-thumb,
 div::-webkit-scrollbar-thumb,
 body::-webkit-scrollbar-thumb {
 	border-radius: 15px;
 	background-color: rgba(0,0,0,0.3);
-}
+} */
 
 .MainTextColor {
 	font-weight: bold;

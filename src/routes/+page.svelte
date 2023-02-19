@@ -1,15 +1,7 @@
-<script>
+<script lang="ts">
 	import MedicsImg from '$lib/images/medicine.svg';
-
-	import { onMount } from 'svelte';
 	let WindowHeight = 0;
 	let WindowWidth = 0;
-
-	let mounted = false;
-
-	onMount(() => {
-		mounted = true;
-	});
 </script>
 
 <svelte:window bind:innerHeight={WindowHeight} bind:innerWidth={WindowWidth} />
@@ -17,7 +9,6 @@
 	<title>Home | Medical Forum</title>
 	<meta name="description" content="Medical Forum - Home page" />
 </svelte:head>
-
 
 <div class="flex flex-col items-center h-full justify-start pt-10">
 	<div class="text-center  my-[10%] md:my-[3%]">

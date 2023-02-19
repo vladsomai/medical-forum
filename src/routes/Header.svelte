@@ -1,6 +1,9 @@
 <script lang="ts">
 	import favicon from '$lib/images/favicon.png';
-    import ContulMeuImg from "$lib/images/icons/person-circle.svg"
+	import MyAccountImg from '$lib/images/icons/person-circle.svg';
+	import CalendarImg from '$lib/images/icons/calendar.svg';
+	import { medicalForumFirebaseAuth } from '$lib/firebase/firebase';
+	import { user } from '$lib/stores/globalStore';
 </script>
 
 <div class="flex h-full w-full justify-around items-center">
@@ -11,6 +14,11 @@
 		</div>
 	</a>
 	<div>
-		<a href="/signin" class="btn btn-ghost border-solid border-3 border-primary rounded-full"><img src={ContulMeuImg} class="w-6 h-6 mr-3" alt="my account"> Contul meu </a>
+		<a
+			href={$user ? '/dashboard' : '/signin'}
+			class="btn btn-ghost border-solid border-3 border-primary rounded-full"
+			><img src={MyAccountImg} class="w-6 h-6 mr-3" alt="my account" />
+			Contul meu
+		</a>
 	</div>
 </div>

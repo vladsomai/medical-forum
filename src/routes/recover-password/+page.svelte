@@ -4,13 +4,14 @@
 	import { sendPasswordResetEmail } from 'firebase/auth';
 	import { medicalForumFirebaseAuth } from '$lib/firebase/firebase';
 	import { modalContent } from '$lib/stores/globalStore';
-	import EmailSent from '$lib/components/modal/emailSent.svelte';
-	import UserNotFound from '$lib/components/modal/userNotFound.svelte';
+	import EmailSent from '$lib/components/modal/recoveryEmailSent.svelte';
+	import UserNotFound from '$lib/components/modal/Signin/userNotFound.svelte';
+	import GeneralError from '$lib/components/modal/generalError.svelte';
 
 	let loading = false;
 	async function recoverPassword(e: any) {
-		loading = true;
 		e.preventDefault();
+		loading = true;
 		const email = e.target['email'].value;
 
 		sendPasswordResetEmail(medicalForumFirebaseAuth, email)
@@ -23,7 +24,6 @@
 			})
 			.catch((error) => {
 				const errorCode = error.code;
-				console.log(errorCode);
 				let modalElem = document.getElementById('modalElement');
 				switch (errorCode) {
 					case 'auth/user-not-found':
