@@ -8,24 +8,25 @@
 	}
 }
 
-/* div::-webkit-scrollbar,
-body::-webkit-scrollbar {
-	width: 7px;
-	height: 7px;
+::-webkit-scrollbar {
+	width: 9px;
 }
 
-div::-webkit-scrollbar-track,
-body::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
 	-webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
 	box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
-	background-color: rgba(0,0,0,0);
+	border-radius: 15px;
 }
 
-div::-webkit-scrollbar-thumb,
-body::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
 	border-radius: 15px;
-	background-color: rgba(0,0,0,0.3);
-} */
+	background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #666;
+}
 
 .MainTextColor {
 	font-weight: bold;
