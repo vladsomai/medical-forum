@@ -1,4 +1,11 @@
+
 export enum AttributeEnum { Secretary, Medic, PowerUser }
+
+export const AccountType = new Map([
+    [0, "Admin"],
+    [1, "Medic"],
+    [2, "Utilizator"]
+])
 export const Specialities = new Map([
     [1, "Alergologie si Imunologie clinica"],
     // [2, "Anesthesiology"],
@@ -22,3 +29,25 @@ export const Specialities = new Map([
     [20, "Urologie"],
 ]);
 
+export interface UserProfile {
+    UID: string,
+    Email: string,
+    PhoneNumber: string,
+    Attribute: AttributeEnum
+    Firstname: string,
+    Surname: string
+}
+
+export interface Medic extends UserProfile {
+    ProfilePicture: string,
+    Title: string,
+    Specialities: string[],
+    Availability: Date[][]
+}
+
+export interface Appointment {
+    UID: string,
+    Date: Date,
+    Speciality: string,
+    Medic: Medic,
+}

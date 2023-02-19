@@ -10,11 +10,4 @@
 </svelte:head>
 
 <div class="w-full h-full flex justify-center items-center">
-	<button
-		class="btn btn-ghost rounded-full"
-		on:click={() => {
-			signOut(medicalForumFirebaseAuth);
-			goto('/');
-		}}>Sign out</button
-	>
 </div>
