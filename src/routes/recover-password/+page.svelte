@@ -46,7 +46,7 @@
 	<title>Recuperare parola | Medical Forum</title>
 	<meta name="description" content="Medical Forum - Recuperare parola" />
 </svelte:head>
-<div class="w-full h-full flex flex-col items-center justify-center">
+<div class="w-full h-screen fixed top-0 flex flex-col items-center justify-center">
 	<img class="w-3/6 sm:w-2/6 lg:w-1/6 mb-4" alt="recover email" src={RecoverPasswordImg} />
 	<div>
 		<form class="flex flex-col" on:submit={recoverPassword}>

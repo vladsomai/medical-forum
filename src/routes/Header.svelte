@@ -9,11 +9,11 @@
 </script>
 
 <div class="flex h-full w-full justify-around items-center">
-	<a href="/" class="flex flex-col justify-center items-center w-[50%]">
+	<a href="/" class="flex flex-col justify-center items-center w-[50%] md:w-auto">
 		<img src={favicon} height="40" width="40" alt="logo" />
 		<p class="MainTextColor text-md text-center">Medical Forum</p>
 	</a>
-	<div class="dropdown dropdown-end w-[50%] md:hidden text-right pr-[15%]">
+	<div class="dropdown dropdown-end w-[50%] md:w-auto md:hidden text-right pr-[15%]">
 		<button class="btn btn-ghost btn-circle">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"

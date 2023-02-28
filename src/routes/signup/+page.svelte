@@ -3,6 +3,7 @@
 	import AccoutAlreadyExists from '$lib/components/modal/Signup/accoutAlreadyExists.svelte';
 	import { modalContent } from '$lib/stores/globalStore';
 	import EmailIcon from '$lib/images/icons/email.svg';
+	import NameIcon from '$lib/images/icons/person-details.svg';
 	import PasswordIcon from '$lib/images/icons/password.svg';
 	import PhoneIcon from '$lib/images/icons/telephone.svg';
 	import { createUserWithEmailAndPassword, sendEmailVerification, type User } from 'firebase/auth';
@@ -22,6 +23,8 @@
 
 		loading = true;
 
+		const lastName = e.target['lastName'].value;
+		const firstName = e.target['firstName'].value;
 		const email = e.target['email'].value;
 		const phone = e.target['phone'].value;
 		const password = e.target['password'].value;
@@ -55,6 +58,9 @@
 					try {
 						const docRef = await addDoc(collection(medicalForumFirebaseFirestore, 'UserProfile'), {
 							UID: medicalForumFirebaseAuth.currentUser?.uid,
+							LastName: lastName,
+							FirstName: firstName,
+							Email: email,
 							PhoneNumber: phone,
 							Attribute: AttributeEnum.PowerUser
 						});
@@ -96,11 +102,31 @@
 	<title>Sign up | Medical Forum</title>
 	<meta name="description" content="Medical Forum - Sign up" />
 </svelte:head>
-<div class="w-full h-full flex flex-col items-center justify-center">
-	<img class="w-4/6 sm:w-2/6 lg:w-1/6 mb-4" alt="create an account" src={CreateAccountImg} />
+<div class="w-full h-screen overflow-auto fixed top-0 flex flex-col items-center justify-center">
+	<img class="w-3/6 sm:w-2/6 lg:w-1/6 mb-4" alt="create an account" src={CreateAccountImg} />
 
 	<div>
 		<form class="flex flex-col" on:submit={handleSignup}>
+			<div class="input input-primary mb-4 rounded-full flex justify-between items-center ">
+				<img src={NameIcon} alt="last name" />
+				<input
+					name="lastName"
+					required
+					placeholder="Nume"
+					class="input input-primary input-sm border-0 rounded-r-full focus:outline-none outline-none focus:bg-transparent bg-transparent active:bg-transparent ml-1"
+					type="text"
+				/>
+			</div>
+			<div class="input input-primary mb-4 rounded-full flex justify-between items-center ">
+				<img src={NameIcon} alt="first name" />
+				<input
+					name="firstName"
+					required
+					placeholder="Prenume"
+					class="input input-primary input-sm border-0 rounded-r-full focus:outline-none outline-none focus:bg-transparent bg-transparent active:bg-transparent ml-1"
+					type="text"
+				/>
+			</div>
 			<div class="input input-primary mb-4 rounded-full flex justify-between items-center ">
 				<img src={EmailIcon} alt="email" />
 				<input

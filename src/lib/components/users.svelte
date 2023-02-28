@@ -2,7 +2,7 @@
 	import type { User, UserProfile } from 'firebase/auth';
 	import { collection, getDocs } from 'firebase/firestore';
 	import { medicalForumFirebaseFirestore } from '$lib/firebase/firebase';
-	import { AccountType, AttributeEnum } from '$lib/types';
+	import { AttributeEnum } from '$lib/types';
 
 	let allUsers: UserProfile[] = [];
 	getAllUsers();
@@ -20,11 +20,11 @@
 
 				users.push({
 					UID: documentData.UID as string,
-                    Email: '',
+					LastName: documentData.LastName as string,
+					FirstName: documentData.FirstName as string,
+					Email: documentData.Email,
 					PhoneNumber: documentData.PhoneNumber as string,
-					Attribute: documentData.Attribute as AttributeEnum,
-					Firstname: documentData.Firstname as string,
-					Surname: documentData.Surname as string
+					Attribute: documentData.Attribute as AttributeEnum
 				} as UserProfile);
 
 				count += 1;
@@ -43,9 +43,8 @@
 		<thead>
 			<tr>
 				<th />
-				<th>Email</th>
-				<th>Prenume</th>
 				<th>Nume</th>
+				<th>Email</th>
 				<th>Mobil</th>
 				<th>Tip cont</th>
 			</tr>
@@ -54,11 +53,10 @@
 			{#each allUsers as user, index}
 				<tr>
 					<th>{index + 1}</th>
+					<td>{user.LastName + ' ' + user.FirstName}</td>
 					<td>{user.Email}</td>
-					<td>{user.Firstname}</td>
-					<td>{user.Surname}</td>
 					<td>{user.PhoneNumber}</td>
-					<td>{AccountType.get(Number(user.Attribute))}</td>
+					<td>{AttributeEnum[Number(user.Attribute)]}</td>
 				</tr>
 			{/each}
 		</tbody>

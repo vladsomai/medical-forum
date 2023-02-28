@@ -70,7 +70,7 @@
 	<meta name="description" content="Medical Forum - Sign in" />
 </svelte:head>
 
-<div class="w-full h-full flex flex-col items-center justify-center">
+<div class="w-full fixed top-0 h-screen flex flex-col items-center justify-center">
 	<img class="w-4/6 sm:w-2/6 lg:w-1/6 mb-4" alt="login" src={LoginImg} />
 	<div>
 		<form class="flex flex-col" on:submit={handleSignin}>

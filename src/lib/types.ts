@@ -1,32 +1,19 @@
 
-export enum AttributeEnum { Secretary, Medic, PowerUser }
+export enum AttributeEnum { Admin, Medic, PowerUser }
 
-export const AccountType = new Map([
-    [0, "Admin"],
-    [1, "Medic"],
-    [2, "Utilizator"]
-])
 export const Specialities = new Map([
-    [1, "Alergologie si Imunologie clinica"],
-    // [2, "Anesthesiology"],
-    [3, "Dermatologie"],
-    [4, "Radiologie"],
-    // [5, "Emergency medicine"],
-    [6, "Medicina de familie"],
+    [1, "Dermatologie"],
+    [2, "Medicina interna"],
+    [3, "Neurologie"],
+    [4, "Pediatrie"],
+    [5, "Psihiatrie"],
+    [6, "Cardiologie"],
     [7, "Medicina interna"],
-    [8, "Genetica"],
-    [9, "Neurologie"],
-    // [10, "Nuclear medicine"],
-    [11, "Obstetrica si ginecologie"],
-    [12, "Oftalmologie"],
-    [13, "Patologie"],
-    [14, "Pediatrie"],
-    [15, "Physical medicine and rehabilitation"],
-    [16, "Medicina preventiva"],
-    [17, "Psihiatrie"],
-    [18, "Oncologie"],
-    // [19, "Surgery"],
-    [20, "Urologie"],
+    [8, "Nefrologie"],
+    [9, "Pneumologie"],
+    [10, "Medicina muncii"],
+    [11, "Recuperare medicala"],
+    // [1, "Alergologie si Imunologie clinica"],
 ]);
 
 export interface UserProfile {

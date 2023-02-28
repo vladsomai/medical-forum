@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { error } from '@sveltejs/kit';
 	import { AttributeEnum } from '$lib/types';
 	import { browser } from '$app/environment';
 	import { user } from '$lib/stores/globalStore';
@@ -9,6 +10,7 @@
 	import { addDoc, collection, getDocs, query, where } from 'firebase/firestore';
 	import { medicalForumFirebaseAuth, medicalForumFirebaseFirestore } from '$lib/firebase/firebase';
 	import type { User } from 'firebase/auth';
+	import GeneralError from '$lib/components/modal/generalError.svelte';
 	let loadingUser = true;
 
 	let redirectTimeout: NodeJS.Timeout;
@@ -20,28 +22,39 @@
 	}, 3000);
 
 	async function determineUserType(user: User | null) {
-		if (user) {
-			//check what attribute the user has
-			clearTimeout(redirectTimeout);
+		try {
+			if (user) {
+				//check what attribute the user has
+				clearTimeout(redirectTimeout);
 
-			const q = query(
-				collection(medicalForumFirebaseFirestore, 'UserProfile'),
-				where('UID', '==', user.uid)
-			);
+				const q = query(
+					collection(medicalForumFirebaseFirestore, 'UserProfile'),
+					where('UID', '==', user.uid)
+				);
 
-			const querySnapshot = await getDocs(q);
-			const profile = querySnapshot.docs[0].data();
+				const querySnapshot = await getDocs(q);
+				const profile = querySnapshot.docs[0].data();
 
-			switch (profile.Attribute) {
-				case AttributeEnum.Medic:
-					await goto('/dashboard/medic');
-					break;
-				case AttributeEnum.Secretary:
-					await goto('/dashboard/admin');
-					break;
-				default:
-					await goto('/dashboard');
-					break;
+				switch (profile.Attribute) {
+					case AttributeEnum.Medic:
+						await goto('/dashboard/medic');
+						break;
+					case AttributeEnum.Admin:
+						await goto('/dashboard/admin');
+						break;
+					default:
+						await goto('/dashboard');
+						break;
+				}
+				loadingUser = false;
+			}
+		} catch (error) {
+			if (browser) {
+				const modalElem = document.getElementById('modalElement');
+				//@ts-ignore
+				$modalContent = GeneralError;
+				modalElem?.click();
+				goto('/signin');
 			}
 			loadingUser = false;
 		}
