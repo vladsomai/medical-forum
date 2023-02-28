@@ -1898,44 +1898,9 @@ html {
   margin-right: 10%;
 }
 
-.my-\[10\%\] {
-  margin-top: 10%;
-  margin-bottom: 10%;
-}
-
-.my-10 {
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
-}
-
 .my-\[10vh\] {
   margin-top: 10vh;
   margin-bottom: 10vh;
-}
-
-.my-\[20vh\] {
-  margin-top: 20vh;
-  margin-bottom: 20vh;
-}
-
-.my-\[50vh\] {
-  margin-top: 50vh;
-  margin-bottom: 50vh;
-}
-
-.my-\[7vh\] {
-  margin-top: 7vh;
-  margin-bottom: 7vh;
-}
-
-.my-\[6vh\] {
-  margin-top: 6vh;
-  margin-bottom: 6vh;
-}
-
-.my-\[3vh\] {
-  margin-top: 3vh;
-  margin-bottom: 3vh;
 }
 
 .my-\[5vh\] {
@@ -1987,8 +1952,24 @@ html {
   margin-top: 0.5rem;
 }
 
+.mt-\[5vh\] {
+  margin-top: 5vh;
+}
+
 .mt-\[10vh\] {
   margin-top: 10vh;
+}
+
+.mt-\[30vh\] {
+  margin-top: 30vh;
+}
+
+.mt-\[20vh\] {
+  margin-top: 20vh;
+}
+
+.mt-\[15vh\] {
+  margin-top: 15vh;
 }
 
 .flex {
@@ -2011,8 +1992,8 @@ html {
   height: 50%;
 }
 
-.h-screen {
-  height: 100vh;
+.h-\[10vh\] {
+  height: 10vh;
 }
 
 .h-7 {
@@ -2023,6 +2004,10 @@ html {
   height: 1.5rem;
 }
 
+.h-screen {
+  height: 100vh;
+}
+
 .h-\[50px\] {
   height: 50px;
 }
@@ -2031,28 +2016,12 @@ html {
   height: 2.5rem;
 }
 
-.h-\[10vh\] {
-  height: 10vh;
-}
-
-.h-\[15vh\] {
-  height: 15vh;
-}
-
-.h-\[9vh\] {
-  height: 9vh;
-}
-
 .w-full {
   width: 100%;
 }
 
 .w-3\/6 {
   width: 50%;
-}
-
-.w-screen {
-  width: 100vw;
 }
 
 .w-\[50\%\] {
@@ -2071,6 +2040,10 @@ html {
   width: 1.5rem;
 }
 
+.w-screen {
+  width: 100vw;
+}
+
 .w-\[50px\] {
   width: 50px;
 }
@@ -2081,10 +2054,6 @@ html {
 
 .w-4\/6 {
   width: 66.666667%;
-}
-
-.w-\[90\%\] {
-  width: 90%;
 }
 
 .max-w-\[70\%\] {
@@ -2142,10 +2111,6 @@ html {
   overflow-x: auto;
 }
 
-.overflow-x-hidden {
-  overflow-x: hidden;
-}
-
 .rounded-full {
   border-radius: 9999px;
 }
@@ -2199,31 +2164,9 @@ html {
   padding: 0.5rem;
 }
 
-.px-10 {
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
-}
-
-.py-10 {
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
-}
-
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
-}
-
-.pt-4 {
-  padding-top: 1rem;
-}
-
-.pt-\[10\%\] {
-  padding-top: 10%;
-}
-
-.pt-10 {
-  padding-top: 2.5rem;
 }
 
 .pr-\[15\%\] {
@@ -2352,11 +2295,6 @@ html {
   .md\:my-\[3\%\] {
     margin-top: 3%;
     margin-bottom: 3%;
-  }
-
-  .md\:my-\[10vh\] {
-    margin-top: 10vh;
-    margin-bottom: 10vh;
   }
 
   .md\:flex {

@@ -86,7 +86,7 @@
 	</div>
 {:else}
 	{#if $user && !$user.emailVerified}
-		<div class=" flex justify-center items-center mt-10 w-full">
+		<div class=" flex justify-center items-center mt-[15vh] w-full">
 			<div
 				class="alert alert-warning shadow-lg max-w-[80%] md:max-w-[60%] lg:max-w-[60%] xl:max-w-[25%]"
 			>
