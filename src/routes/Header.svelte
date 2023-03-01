@@ -7,30 +7,6 @@
 	import { signOut } from 'firebase/auth';
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
-
-	onMount(() => {
-		const buttons = document.querySelectorAll('button');
-
-		for (let i = 0; i <= buttons.length - 1; i++) {
-			(function (index) {
-				let button = buttons[index];
-				button.addEventListener('click', function () {
-					button.focus();
-				});
-			})(i);
-		}
-
-		return () => {
-			for (let i = 0; i <= buttons.length - 1; i++) {
-				(function (index) {
-					let button = buttons[index];
-					button.removeEventListener('click', function () {
-						button.focus();
-					});
-				})(i);
-			}
-		};
-	});
 </script>
 
 <div class="flex h-full w-full justify-around items-center">
@@ -57,12 +33,22 @@
 			class="menu menu-compact dropdown-content mt-3 mr-[10%] p-2 shadow rounded-box w-[70%]  items-center bg-primary font-bold"
 		>
 			<li>
-				<a href={$user ? '/dashboard' : '/signin'}> Contul meu </a>
+				<a
+					href={$user ? '/dashboard' : '/signin'}
+					on:click={(e) => {
+						e.currentTarget.focus();
+						console.log(e.currentTarget);
+					}}
+				>
+					Contul meu
+				</a>
 			</li>
 			{#if $user}
 				<li>
 					<button
-						on:click={() => {
+						on:click={(e) => {
+							console.log(e.currentTarget);
+							e.currentTarget.focus();
 							signOut(medicalForumFirebaseAuth);
 							goto('/');
 						}}>Sign out</button

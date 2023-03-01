@@ -38,7 +38,7 @@
 	}
 </script>
 
-<div class="overflow-x-auto mt-[10%] mx-[2%]">
+<div class="overflow-x-auto mt-[5%] mx-[2%]">
 	<table class="table w-full">
 		<thead>
 			<tr>
