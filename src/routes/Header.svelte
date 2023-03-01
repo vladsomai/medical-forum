@@ -15,7 +15,12 @@
 		<p class="MainTextColor text-md text-center">Medical Forum</p>
 	</a>
 	<div class="dropdown dropdown-end w-[50%] md:w-auto md:hidden text-right pr-[15%]">
-		<button class="btn btn-ghost btn-circle">
+		<button
+			class="btn btn-ghost btn-circle"
+			on:click={(e) => {
+				e.currentTarget.focus();
+			}}
+		>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				class="h-7 w-7 stroke-primary"
