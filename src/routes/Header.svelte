@@ -39,6 +39,7 @@
 		>
 			<li>
 				<a
+					class="text-center"
 					href={$user ? '/dashboard' : '/signin'}
 					on:click={(e) => {
 						e.currentTarget.focus();
@@ -48,6 +49,19 @@
 					Contul meu
 				</a>
 			</li>
+			<li>
+				<a
+					class="text-center"
+					href="/appointment"
+					on:click={(e) => {
+						e.currentTarget.focus();
+						console.log(e.currentTarget);
+					}}
+				>
+					Programare fara cont
+				</a>
+			</li>
+
 			{#if $user}
 				<li>
 					<button

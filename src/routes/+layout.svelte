@@ -8,7 +8,7 @@
 </script>
 
 <Modal />
-<nav class="fixed z-10 top-0 py-4 w-full bg-base-100 h-[10vh]">
+<nav class="fixed z-10 top-0 py-10 w-full bg-base-100 h-[10vh]">
 	<Header />
 </nav>
 

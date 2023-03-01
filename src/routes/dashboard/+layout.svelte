@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { error } from '@sveltejs/kit';
 	import { AttributeEnum } from '$lib/types';
 	import { browser } from '$app/environment';
 	import { user } from '$lib/stores/globalStore';
@@ -7,8 +6,8 @@
 	import { modalContent } from '$lib/stores/globalStore';
 	import { goto } from '$app/navigation';
 	import SigninFirst from '$lib/components/modal/Signin/signinFirst.svelte';
-	import { addDoc, collection, getDocs, query, where } from 'firebase/firestore';
-	import { medicalForumFirebaseAuth, medicalForumFirebaseFirestore } from '$lib/firebase/firebase';
+	import { collection, getDocs, query, where } from 'firebase/firestore';
+	import { medicalForumFirebaseFirestore } from '$lib/firebase/firebase';
 	import type { User } from 'firebase/auth';
 	import GeneralError from '$lib/components/modal/generalError.svelte';
 	let loadingUser = true;
@@ -110,6 +109,5 @@
 			</div>
 		</div>
 	{/if}
-
 	<slot />
 {/if}
