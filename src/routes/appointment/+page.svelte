@@ -7,9 +7,10 @@
 	import AppointmentDone from '$lib/components/modal/Appointment/appointmentDone.svelte';
 	import { modalContent } from '$lib/stores/globalStore';
 	let loading = false;
-	let modalElem = document.getElementById('modalElement');
-
+	
 	function handleAppointment() {
+		const modalElem = document.getElementById('modalElement');
+
 		//@ts-ignore
 		$modalContent = AppointmentDone;
 		modalElem?.click();
