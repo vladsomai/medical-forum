@@ -10,17 +10,17 @@
 
 <Drawer>
 	<Modal />
-	<nav class="fixed z-50 top-0 py-10 w-full bg-base-100 h-[10vh]">
+	<nav class="fixed z-10 top-0 py-10 w-[99%] bg-base-100 h-[10vh]">
 		<Header />
 	</nav>
 
 	{#key $page.url}
-		<main class="h-full w-full " in:fade={{ delay: 250, duration: 500 }}>
+		<main class="w-full mt-[15vh] mb-[5vh] md:mt-[10vh]" in:fade={{ delay: 250, duration: 500 }}>
 			<slot />
 		</main>
 	{/key}
 
-	<footer class="fixed bottom-0 z-10 bg-base-100 w-full flex justify-center text-[10px]">
+	<footer class="fixed bottom-0 z-10 bg-base-100 w-[99%] flex justify-center text-[10px]">
 		<div class="flex justify-center items-center">
 			<p>
 				&copy; Medical Forum | {currentDate.getFullYear()} |

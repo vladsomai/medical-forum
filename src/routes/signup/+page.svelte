@@ -99,12 +99,16 @@
 </script>
 
 <svelte:head>
-	<title>Sign up | Medical Forum</title>
+	<title>Creeaza un cont | Medical Forum</title>
 	<meta name="description" content="Medical Forum - Sign up" />
+	<meta name="description" content="Medical Forum - Creeaza un cont" />
 </svelte:head>
-<div class="w-full h-screen overflow-auto fixed top-0 flex flex-col items-center justify-center">
-	<img class="w-3/6 sm:w-2/6 lg:w-1/6 mb-4" alt="create an account" src={CreateAccountImg} />
-
+<div class="flex flex-col items-center justify-start">
+	<img
+		class="w-3/6 sm:w-2/6 lg:w-1/6 mb-4 "
+		alt="create an account"
+		src={CreateAccountImg}
+	/>
 	<div>
 		<form class="flex flex-col" on:submit={handleSignup}>
 			<div class="input input-primary mb-4 rounded-full flex justify-between items-center ">

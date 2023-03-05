@@ -1,41 +1,12 @@
 <script lang="ts">
-	import type { User, UserProfile } from 'firebase/auth';
-	import { collection, getDocs } from 'firebase/firestore';
-	import { medicalForumFirebaseFirestore } from '$lib/firebase/firebase';
-	import { AttributeEnum } from '$lib/types';
+	import { AttributeEnum, type UserProfile } from '$lib/types';
+	import { getAllUsers } from '$lib/firebase/users';
+	import { onMount } from 'svelte';
 
 	let allUsers: UserProfile[] = [];
-	getAllUsers();
-
-	async function getAllUsers() {
-		const querySnapshot = await getDocs(collection(medicalForumFirebaseFirestore, 'UserProfile'));
-		let count = 0;
-		let users: UserProfile[] = [];
-		await new Promise((resolve: Function) => {
-			if (querySnapshot.size == 0) resolve();
-
-			querySnapshot.forEach(async (doc) => {
-				//we must convert data form unix like to js date object
-				const documentData = doc.data();
-
-				users.push({
-					UID: documentData.UID as string,
-					LastName: documentData.LastName as string,
-					FirstName: documentData.FirstName as string,
-					Email: documentData.Email,
-					PhoneNumber: documentData.PhoneNumber as string,
-					Attribute: documentData.Attribute as AttributeEnum
-				} as UserProfile);
-
-				count += 1;
-
-				if (count == querySnapshot.size) {
-					allUsers = users;
-					resolve();
-				}
-			});
-		});
-	}
+	onMount(async () => {
+		allUsers = await getAllUsers();
+	});
 </script>
 
 <div class="overflow-x-auto mt-[5%] mx-[2%]">

@@ -21,8 +21,12 @@ export interface UserProfile {
     Email: string,
     PhoneNumber: string,
     Attribute: AttributeEnum
-    Firstname: string,
-    Surname: string
+    FirstName: string,
+    LastName: string,
+
+    //Only medics will have the following attributes
+    Speciality?: string,
+    Title?:string,
 }
 
 export interface Medic extends UserProfile {

@@ -10,12 +10,12 @@
 
 <div class="drawer drawer-end">
 	<input id="my-drawer-4" type="checkbox" class="drawer-toggle" />
-	<div class="drawer-content">
+	<div class="drawer-content z-50">
 		<slot />
 	</div>
 	<div class="drawer-side">
 		<label for="my-drawer-4" class="drawer-overlay" />
-		<ul class="menu p-4 w-80 bg-base-100 text-base-content">
+		<ul class="menu p-4 w-80 bg-base-100 text-base-content font-semibold">
 			<li class="bg-red flex justify-end w-7 h-7 self-end m-10">
 				<button
 					on:click={() => {
