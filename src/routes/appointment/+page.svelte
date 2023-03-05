@@ -80,7 +80,7 @@
 
 <div class="w-full h-screen fixed top-0 flex justify-center items-center">
 	<div class=" mx-[10%] flex flex-col justify-center items-center">
-		<form class="flex flex-col my-5 " on:submit={handleAppointment}>
+		<form class="flex flex-col my-5 " on:submit|preventDefault={handleAppointment}>
 			<div class="input input-primary mb-4 rounded-full flex justify-start items-center ">
 				<img src={NameIcon} alt="last name" />
 				<input
