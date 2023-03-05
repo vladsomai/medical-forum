@@ -36,7 +36,13 @@
 				</button>
 			</li>
 			<li>
-				<a class="text-center bg-primary mb-3" href={$user ? '/dashboard' : '/signin'}>
+				<a
+					class="text-center bg-primary mb-3"
+					href={$user ? '/dashboard' : '/signin'}
+					on:click={() => {
+						document.getElementById('my-drawer-4')?.click();
+					}}
+				>
 					<img src={MyAccountImg} class="w-6 h-6 mr-3" alt="my account" />
 					Contul meu
 				</a>
@@ -44,7 +50,13 @@
 
 			{#if !$user}
 				<li>
-					<a class="text-center bg-primary mb-3" href="/appointment">
+					<a
+						class="text-center bg-primary mb-3"
+						href="/appointment"
+						on:click={() => {
+							document.getElementById('my-drawer-4')?.click();
+						}}
+					>
 						<img src={CalendarImg} class="w-6 h-6 mr-3" alt="sign out" />
 						Programare fara cont
 					</a>
@@ -58,6 +70,7 @@
 						on:click={(e) => {
 							signOut(medicalForumFirebaseAuth);
 							goto('/');
+							document.getElementById('my-drawer-4')?.click();
 						}}
 					>
 						<img src={SignOutImg} class="w-6 h-6 mr-3" alt="sign out" />
