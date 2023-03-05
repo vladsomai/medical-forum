@@ -15,7 +15,7 @@
 		<p class="MainTextColor text-md text-center">Medical Forum</p>
 	</a>
 	<div class="dropdown dropdown-end w-[50%] md:w-auto md:hidden text-right pr-[15%]">
-		<label tabindex="0" class="btn btn-ghost btn-circle">
+		<label for="my-drawer-4" class="drawer-button btn btn-ghost btn-circle ">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				class="h-7 w-7 stroke-primary"
@@ -27,33 +27,8 @@
 					stroke-width="2"
 					d="M4 6h16M4 12h16M4 18h7"
 				/></svg
-			></label
-		>
-		<ul
-			tabindex="0"
-			class="menu dropdown-content mt-3 mr-[10%] p-2 shadow rounded-box w-[70%]  items-center bg-primary font-bold "
-		>
-			<li>
-				<a class="text-center" href={$user ? '/dashboard' : '/signin'}> Contul meu </a>
-			</li>
-			<li>
-				<a class="text-center " href="/appointment"> Programare fara cont </a>
-			</li>
-
-			{#if $user}
-				<li>
-					<button
-						class="z-50"
-						on:click={(e) => {
-							console.log(e.currentTarget);
-							e.currentTarget.focus();
-							signOut(medicalForumFirebaseAuth);
-							goto('/');
-						}}>Sign out</button
-					>
-				</li>
-			{/if}
-		</ul>
+			>
+		</label>
 	</div>
 	<div class="hidden md:flex">
 		{#if $user}
