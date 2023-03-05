@@ -1849,6 +1849,10 @@ html {
   border-radius: var(--rounded-box, 1rem);
 }
 
+.rounded-btn {
+  border-radius: var(--rounded-btn, 0.5rem);
+}
+
 .artboard.phone {
   width: 320px;
 }
@@ -2062,6 +2066,10 @@ html {
   margin-left: 0.25rem;
 }
 
+.mt-4 {
+  margin-top: 1rem;
+}
+
 .mt-3 {
   margin-top: 0.75rem;
 }
@@ -2144,6 +2152,10 @@ html {
 
 .w-\[50\%\] {
   width: 50%;
+}
+
+.w-52 {
+  width: 13rem;
 }
 
 .w-7 {

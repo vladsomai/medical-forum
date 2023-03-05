@@ -15,12 +15,7 @@
 		<p class="MainTextColor text-md text-center">Medical Forum</p>
 	</a>
 	<div class="dropdown dropdown-end w-[50%] md:w-auto md:hidden text-right pr-[15%]">
-		<button
-			class="btn btn-ghost btn-circle"
-			on:click={(e) => {
-				e.currentTarget.focus();
-			}}
-		>
+		<label tabindex="0" class="btn btn-ghost btn-circle">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				class="h-7 w-7 stroke-primary"
@@ -32,34 +27,17 @@
 					stroke-width="2"
 					d="M4 6h16M4 12h16M4 18h7"
 				/></svg
-			>
-		</button>
+			></label
+		>
 		<ul
-			class="menu menu-compact dropdown-content mt-3 mr-[10%] p-2 shadow rounded-box w-[70%]  items-center bg-primary font-bold "
+			tabindex="0"
+			class="menu dropdown-content mt-3 mr-[10%] p-2 shadow rounded-box w-[70%]  items-center bg-primary font-bold "
 		>
 			<li>
-				<a
-					class="text-center z-50"
-					href={$user ? '/dashboard' : '/signin'}
-					on:click={(e) => {
-						e.currentTarget.focus();
-						console.log(e.currentTarget);
-					}}
-				>
-					Contul meu
-				</a>
+				<a class="text-center" href={$user ? '/dashboard' : '/signin'}> Contul meu </a>
 			</li>
 			<li>
-				<a
-					class="text-center z-50"
-					href="/appointment"
-					on:click={(e) => {
-						e.currentTarget.focus();
-						console.log(e.currentTarget);
-					}}
-				>
-					Programare fara cont
-				</a>
+				<a class="text-center " href="/appointment"> Programare fara cont </a>
 			</li>
 
 			{#if $user}
