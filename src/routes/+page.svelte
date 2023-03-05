@@ -1,5 +1,6 @@
 <script lang="ts">
-	import MedicsImg from '$lib/images/medicine.svg';
+	import Drawer from '$lib/components/drawer.svelte';
+import MedicsImg from '$lib/images/medicine.svg';
 	let WindowHeight = 0;
 	let WindowWidth = 0;
 </script>
@@ -10,8 +11,8 @@
 	<meta name="description" content="Medical Forum - Home page" />
 </svelte:head>
 
-<div class="flex flex-col items-center justify-start">
-	<div class="text-center my-[5vh] md:my-[3%]">
+<div class="flex flex-col items-center justify-start  my-[15vh] md:my-[15vh]">
+	<div class="text-center">
 		<p class="MainTextColor text-4xl xl:text-6xl">Clinica Medical Forum</p>
 		<p class="SecondaryTextColor text-1xl xl:text-2xl">Transformam asistenta medicala, impreuna</p>
 	</div>
