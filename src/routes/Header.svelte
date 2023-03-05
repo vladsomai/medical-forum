@@ -35,11 +35,11 @@
 			>
 		</button>
 		<ul
-			class="menu menu-compact dropdown-content mt-3 mr-[10%] p-2 shadow rounded-box w-[70%]  items-center bg-primary font-bold"
+			class="menu menu-compact dropdown-content mt-3 mr-[10%] p-2 shadow rounded-box w-[70%]  items-center bg-primary font-bold "
 		>
 			<li>
 				<a
-					class="text-center"
+					class="text-center z-50"
 					href={$user ? '/dashboard' : '/signin'}
 					on:click={(e) => {
 						e.currentTarget.focus();
@@ -51,7 +51,7 @@
 			</li>
 			<li>
 				<a
-					class="text-center"
+					class="text-center z-50"
 					href="/appointment"
 					on:click={(e) => {
 						e.currentTarget.focus();
@@ -65,6 +65,7 @@
 			{#if $user}
 				<li>
 					<button
+						class="z-50"
 						on:click={(e) => {
 							console.log(e.currentTarget);
 							e.currentTarget.focus();

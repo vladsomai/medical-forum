@@ -7,7 +7,7 @@
 	import AppointmentDone from '$lib/components/modal/Appointment/appointmentDone.svelte';
 	import { modalContent } from '$lib/stores/globalStore';
 	let loading = false;
-	
+
 	function handleAppointment() {
 		const modalElem = document.getElementById('modalElement');
 
@@ -70,7 +70,7 @@
 				<select
 					class="select select-primary select-sm w-full max-w-xs border-0 rounded-r-full focus:outline-none outline-none focus:bg-transparent bg-transparent active:bg-transparent ml-1"
 				>
-					<option disabled selected>Specializare</option>
+					<option disabled selected>Alege specializarea</option>
 					{#each [...Specialities] as [key, value]}
 						<option>{value}</option>
 					{/each}
