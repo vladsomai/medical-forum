@@ -6,7 +6,6 @@
 	import { user } from '$lib/stores/globalStore';
 	import { signOut } from 'firebase/auth';
 	import { goto } from '$app/navigation';
-	import { onMount } from 'svelte';
 </script>
 
 <div class="flex h-full w-full justify-around items-center">
@@ -39,6 +38,15 @@
 					goto('/');
 				}}>Sign out</button
 			>
+		{/if}
+		{#if !$user}
+			<a
+				class="btn btn-ghost border-solid border-3 border-primary rounded-full mr-2"
+				href="/appointment"
+			>
+				<img src={CalendarImg} class="w-6 h-6 mr-3" alt="sign out" />
+				Programare fara cont
+			</a>
 		{/if}
 		<a
 			href={$user ? '/dashboard' : '/signin'}

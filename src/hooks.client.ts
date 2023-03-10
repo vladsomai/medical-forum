@@ -9,3 +9,4 @@ onAuthStateChanged(medicalForumFirebaseAuth, (_user) => {
         user.set(null);
     }
 });
+
