@@ -3,7 +3,7 @@
 		const { Loader } = await import('@googlemaps/js-api-loader');
 
 		const loader = new Loader({
-			apiKey: 'AIzaSyB5mDP4GOnzATO3QU4fl9ca0xG0GKsYE9k',
+			apiKey: '',//'AIzaSyB5mDP4GOnzATO3QU4fl9ca0xG0GKsYE9k',
 			version: 'weekly',
 			libraries: ['places']
 		});

@@ -1,6 +1,6 @@
 import type { AttributeEnum, UserProfile } from "$lib/types";
 import { collection, getDocs } from "firebase/firestore";
-import { medicalForumFirebaseFirestore } from "./firebase";
+import { medicalForumFirebaseFirestore } from "$lib/../hooks.client";
 
 export async function getAllUsers(): Promise<UserProfile[]> {
     const querySnapshot = await getDocs(collection(medicalForumFirebaseFirestore, 'UserProfile'));

@@ -7,7 +7,7 @@
 	import PasswordIcon from '$lib/images/icons/password.svg';
 	import PhoneIcon from '$lib/images/icons/telephone.svg';
 	import { createUserWithEmailAndPassword, sendEmailVerification, type User } from 'firebase/auth';
-	import { medicalForumFirebaseAuth, medicalForumFirebaseFirestore } from '$lib/firebase/firebase';
+	import { medicalForumFirebaseAuth, medicalForumFirebaseFirestore } from '$lib/../hooks.client';
 	import WeakPassword from '$lib/components/modal/Signup/weakPassword.svelte';
 	import GeneralError from '$lib/components/modal/generalError.svelte';
 	import CreateAccountImg from '$lib/images/create-account.svg';
@@ -62,7 +62,12 @@
 							FirstName: firstName,
 							Email: email,
 							PhoneNumber: phone,
-							Attribute: AttributeEnum.PowerUser
+							Attribute: AttributeEnum.PowerUser,
+
+							//for medic user
+							Speciality: '',
+							Title: '',
+							ProfilePic: ''
 						});
 						goto('/dashboard');
 					} catch (e) {}
@@ -103,12 +108,8 @@
 	<meta name="description" content="Medical Forum - Sign up" />
 	<meta name="description" content="Medical Forum - Creeaza un cont" />
 </svelte:head>
-<div class="flex flex-col items-center justify-start">
-	<img
-		class="w-3/6 sm:w-2/6 lg:w-1/6 mb-4 "
-		alt="create an account"
-		src={CreateAccountImg}
-	/>
+<div class="flex flex-col items-center justify-start mb-[10vh]">
+	<img class="w-3/6 sm:w-2/6 lg:w-1/6 mb-4 " alt="create an account" src={CreateAccountImg} />
 	<div>
 		<form class="flex flex-col" on:submit={handleSignup}>
 			<div class="input input-primary mb-4 rounded-full flex justify-between items-center ">

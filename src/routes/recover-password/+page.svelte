@@ -2,7 +2,7 @@
 	import EmailIcon from '$lib/images/icons/email.svg';
 	import RecoverPasswordImg from '$lib/images/forgot-password.svg';
 	import { sendPasswordResetEmail } from 'firebase/auth';
-	import { medicalForumFirebaseAuth } from '$lib/firebase/firebase';
+	import { medicalForumFirebaseAuth } from '$lib/../hooks.client';
 	import { modalContent } from '$lib/stores/globalStore';
 	import EmailSent from '$lib/components/modal/recoveryEmailSent.svelte';
 	import UserNotFound from '$lib/components/modal/Signin/userNotFound.svelte';

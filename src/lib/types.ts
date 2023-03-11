@@ -26,7 +26,8 @@ export interface UserProfile {
 
     //Only medics will have the following attributes
     Speciality?: string,
-    Title?:string,
+    Title?: string,
+    ProfilePic?: string,
 }
 
 export interface Medic extends UserProfile {
@@ -42,3 +43,13 @@ export interface Appointment {
     Speciality: string,
     Medic: Medic,
 }
+
+export const firebaseConfig = {
+    apiKey: "AIzaSyAlGV7zo72S08XJv15-TRe_L-cf0_Z8sbI",
+    authDomain: "medicalforum-19fb2.firebaseapp.com",
+    projectId: "medicalforum-19fb2",
+    storageBucket: "medicalforum-19fb2.appspot.com",
+    messagingSenderId: "101056477350",
+    appId: "1:101056477350:web:df621f81e384297ac15c67",
+    measurementId: "G-38V27RJVD6"
+};

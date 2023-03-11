@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Drawer from '$lib/components/drawer.svelte';
 	import GoogleMaps from '$lib/components/googleMaps.svelte';
 	import MedicsImg from '$lib/images/medicine.svg';
 	let WindowHeight = 0;

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { AttributeEnum } from '$lib/types';
+	import { AttributeEnum, type UserProfile } from '$lib/types';
 	import { browser } from '$app/environment';
 	import { user } from '$lib/stores/globalStore';
 	import { onMount } from 'svelte';
@@ -7,7 +7,7 @@
 	import { goto } from '$app/navigation';
 	import SigninFirst from '$lib/components/modal/Signin/signinFirst.svelte';
 	import { collection, getDocs, query, where } from 'firebase/firestore';
-	import { medicalForumFirebaseFirestore } from '$lib/firebase/firebase';
+	import { medicalForumFirebaseFirestore } from '$lib/../hooks.client';
 	import type { User } from 'firebase/auth';
 	import GeneralError from '$lib/components/modal/generalError.svelte';
 	let loadingUser = true;

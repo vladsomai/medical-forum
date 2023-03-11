@@ -1,4 +1,5 @@
 <script lang="ts">
+	import GeneralError from '$lib/components/modal/generalError.svelte';
 	import EmailIcon from '$lib/images/icons/email.svg';
 	import NameIcon from '$lib/images/icons/person-details.svg';
 	import PhoneIcon from '$lib/images/icons/telephone.svg';
@@ -14,6 +15,8 @@
 	import { onMount } from 'svelte';
 	import UnavailableMedics from '$lib/components/modal/Appointment/unavailableMedics.svelte';
 	import ChoseOneMedic from '$lib/components/modal/Appointment/choseOneMedic.svelte';
+	import { addDoc, collection } from 'firebase/firestore';
+	import { medicalForumFirebaseAuth, medicalForumFirebaseFirestore } from '$lib/../hooks.client';
 
 	const defaultSpeciality = 'Alege specializarea';
 	const unavailableMedics = 'Medici indisponibili';
@@ -36,15 +39,16 @@
 		allUsers = await getAllUsers();
 	});
 
-	function handleAppointment(e: any) {
+	async function handleAppointment(e: any) {
 		const modalElem = document.getElementById('modalElement');
 
-		const lastname = e.target[0].value;
-		const firstname = e.target[1].value;
-		const email = e.target[2].value;
-		const phone = e.target[3].value;
-		const speciality = e.target[4].value;
-		const medic = e.target[5].value;
+		const lastname = e.target['lastname'].value;
+		const firstname = e.target['firstname'].value;
+		const email = e.target['email'].value;
+		const phone = e.target['phone'].value;
+		const speciality = e.target['speciality'].value;
+		const medic = e.target['medic'].value;
+		const investigations = e.target['investigations'].checked;
 
 		if (speciality === defaultSpeciality) {
 			//@ts-ignore
@@ -66,10 +70,32 @@
 			modalElem?.click();
 			return;
 		}
+		loading = true;
 
-		//@ts-ignore
-		$modalContent = AppointmentDone;
-		modalElem?.click();
+		try {
+			const docRef = await addDoc(collection(medicalForumFirebaseFirestore, 'Appointment'), {
+				LastName: lastname,
+				FirstName: firstname,
+				Email: email,
+				PhoneNumber: phone,
+				Speciality: speciality,
+				Medic: medic,
+				Investigations: investigations,
+				Confirmed: false, //must be set by admin
+				Date: new Date() //must be set by admin
+			});
+
+			//@ts-ignore
+			$modalContent = AppointmentDone;
+			modalElem?.click();
+		} catch (err) {
+			console.log(err);
+			//@ts-ignore
+			$modalContent = GeneralError;
+			modalElem?.click();
+		}
+
+		loading = false;
 	}
 </script>
 
@@ -78,13 +104,13 @@
 	<meta name="description" content="Medical Forum - Programare fara cont" />
 </svelte:head>
 
-<div class="w-full h-screen fixed top-0 flex justify-center items-center">
-	<div class=" mx-[10%] flex flex-col justify-center items-center">
-		<form class="flex flex-col my-5 " on:submit|preventDefault={handleAppointment}>
+<div class="w-full flex justify-center items-center">
+	<div class=" mx-[10%] w-full flex flex-col justify-center items-center">
+		<form class="flex flex-col my-5 w-auto" on:submit|preventDefault={handleAppointment}>
 			<div class="input input-primary mb-4 rounded-full flex justify-start items-center ">
 				<img src={NameIcon} alt="last name" />
 				<input
-					name="lastName"
+					name="lastname"
 					required
 					placeholder="Nume"
 					class="input input-primary input-sm border-0 rounded-r-full focus:outline-none outline-none focus:bg-transparent bg-transparent active:bg-transparent ml-1"
@@ -94,7 +120,7 @@
 			<div class="input input-primary mb-4 rounded-full flex justify-start items-center ">
 				<img src={NameIcon} alt="first name" />
 				<input
-					name="firstName"
+					name="firstname"
 					required
 					placeholder="Prenume"
 					class="input input-primary input-sm border-0 rounded-r-full focus:outline-none outline-none focus:bg-transparent bg-transparent active:bg-transparent ml-1"
@@ -124,6 +150,7 @@
 			<div class="input input-primary mb-4 rounded-full flex justify-start items-center ">
 				<img src={SpecialityIcon} alt="appointment speciality" />
 				<select
+					name="speciality"
 					bind:value={currentSpeciality}
 					class="select select-primary select-sm w-full max-w-xs border-0 rounded-r-full focus:outline-none outline-none focus:bg-transparent bg-transparent active:bg-transparent ml-1"
 				>
@@ -136,6 +163,7 @@
 			<div class="input input-primary mb-4 rounded-full flex justify-start items-center ">
 				<img src={MedicIcon} alt="medic" class="w-[17px] h-auto m-0 p-0" />
 				<select
+					name="medic"
 					class="select select-primary select-sm w-full max-w-xs border-0 rounded-r-full focus:outline-none outline-none focus:bg-transparent bg-transparent active:bg-transparent ml-1"
 				>
 					{#if availableMedicsForCurrentSpeciality.length === 0}
@@ -151,7 +179,7 @@
 			<div class="form-control mb-4 flex justify-between items-center">
 				<label class="label cursor-pointer flex items-center justify-center">
 					<span class="label-text mr-3 text-[16px]">Ai nevoie si de investigatii?</span>
-					<input type="checkbox" checked={true} class="checkbox checkbox-primary" />
+					<input type="checkbox" name="investigations" class="checkbox checkbox-primary" />
 				</label>
 			</div>
 			<button

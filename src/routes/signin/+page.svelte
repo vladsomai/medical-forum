@@ -6,7 +6,7 @@
 	import {
 		signInWithEmailAndPassword,
 	} from 'firebase/auth';
-	import { medicalForumFirebaseAuth } from '$lib/firebase/firebase';
+	import { medicalForumFirebaseAuth } from '$lib/../hooks.client';
 	import GeneralError from '$lib/components/modal/generalError.svelte';
 	import UserNotFound from '$lib/components/modal/Signin/userNotFound.svelte';
 	import WrongPassword from '$lib/components/modal/Signin/wrongPassword.svelte';

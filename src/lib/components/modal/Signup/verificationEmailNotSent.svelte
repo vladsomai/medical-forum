@@ -4,7 +4,7 @@
 
 <div class="w-full h-full flex flex-col justify-center items-center">
 	<h3 class="text-3xl my-5">Eroare!</h3>
-	<p class="text-center">Nu am putut sa trimitem email de verificare.</p>
+	<p class="text-center">Nu am putut sa trimitem un email de verificare.</p>
 	<p class="text-center">
 		Contul tau a fost creat insa nu am putut sa iti trimitem un email pentru verificare, te rugam sa
 		ne contactezi telefonic.

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import { medicalForumFirebaseAuth } from '$lib/firebase/firebase';
+	import { medicalForumFirebaseAuth } from '$lib/../hooks.client';
 	import { user } from '$lib/stores/globalStore';
 	import { signOut } from 'firebase/auth';
 	import SignOutImg from '$lib/images/icons/sign-out.svg';

@@ -2,7 +2,7 @@
 	import favicon from '$lib/images/favicon.png';
 	import MyAccountImg from '$lib/images/icons/person-circle.svg';
 	import CalendarImg from '$lib/images/icons/calendar.svg';
-	import { medicalForumFirebaseAuth } from '$lib/firebase/firebase';
+	import { medicalForumFirebaseAuth } from '$lib/../hooks.client';
 	import { user } from '$lib/stores/globalStore';
 	import { signOut } from 'firebase/auth';
 	import { goto } from '$app/navigation';
