@@ -16,7 +16,7 @@
 	import UnavailableMedics from '$lib/components/modal/Appointment/unavailableMedics.svelte';
 	import ChoseOneMedic from '$lib/components/modal/Appointment/choseOneMedic.svelte';
 	import { addDoc, collection } from 'firebase/firestore';
-	import { medicalForumFirebaseAuth, medicalForumFirebaseFirestore } from '$lib/../hooks.client';
+	import { medicalForumFirebaseFirestore } from '$lib/../hooks.client';
 
 	const defaultSpeciality = 'Alege specializarea';
 	const unavailableMedics = 'Medici indisponibili';
@@ -88,6 +88,7 @@
 			//@ts-ignore
 			$modalContent = AppointmentDone;
 			modalElem?.click();
+            e.target.reset();
 		} catch (err) {
 			console.log(err);
 			//@ts-ignore
@@ -106,8 +107,8 @@
 
 <div class="w-full flex justify-center items-center">
 	<div class=" mx-[10%] w-full flex flex-col justify-center items-center">
-		<form class="flex flex-col my-5 w-auto" on:submit|preventDefault={handleAppointment}>
-			<div class="input input-primary mb-4 rounded-full flex justify-start items-center ">
+		<form class="flex flex-col my-5 items-center" on:submit|preventDefault={handleAppointment}>
+			<div class="input input-primary mb-4 rounded-full flex justify-start items-center  w-full">
 				<img src={NameIcon} alt="last name" />
 				<input
 					name="lastname"
@@ -117,7 +118,7 @@
 					type="text"
 				/>
 			</div>
-			<div class="input input-primary mb-4 rounded-full flex justify-start items-center ">
+			<div class="input input-primary mb-4 rounded-full flex justify-start items-center  w-full">
 				<img src={NameIcon} alt="first name" />
 				<input
 					name="firstname"
@@ -127,7 +128,7 @@
 					type="text"
 				/>
 			</div>
-			<div class="input input-primary mb-4 rounded-full flex justify-start items-center ">
+			<div class="input input-primary mb-4 rounded-full flex justify-start items-center  w-full">
 				<img src={EmailIcon} alt="email" />
 				<input
 					name="email"
@@ -137,7 +138,7 @@
 					type="email"
 				/>
 			</div>
-			<div class="input input-primary mb-4 rounded-full flex justify-start items-center ">
+			<div class="input input-primary mb-4 rounded-full flex justify-start items-center w-full">
 				<img src={PhoneIcon} alt="phone" />
 				<input
 					name="phone"
@@ -147,12 +148,12 @@
 					type="tel"
 				/>
 			</div>
-			<div class="input input-primary mb-4 rounded-full flex justify-start items-center ">
-				<img src={SpecialityIcon} alt="appointment speciality" />
+			<div class="input input-primary mb-4 rounded-full flex justify-start items-center w-full">
+				<img src={SpecialityIcon} alt="appointment speciality" class="w-[30px] h-auto m-0 p-0" />
 				<select
 					name="speciality"
 					bind:value={currentSpeciality}
-					class="select select-primary select-sm w-full max-w-xs border-0 rounded-r-full focus:outline-none outline-none focus:bg-transparent bg-transparent active:bg-transparent ml-1"
+					class="select select-primary w-full max-w-xs select-sm border-0 rounded-r-full focus:outline-none outline-none focus:bg-transparent bg-transparent active:bg-transparent ml-1"
 				>
 					<option disabled selected>{defaultSpeciality}</option>
 					{#each [...Specialities] as [key, value]}
@@ -160,11 +161,11 @@
 					{/each}
 				</select>
 			</div>
-			<div class="input input-primary mb-4 rounded-full flex justify-start items-center ">
+			<div class="input input-primary mb-4 rounded-full flex justify-start items-center w-full">
 				<img src={MedicIcon} alt="medic" class="w-[17px] h-auto m-0 p-0" />
 				<select
 					name="medic"
-					class="select select-primary select-sm w-full max-w-xs border-0 rounded-r-full focus:outline-none outline-none focus:bg-transparent bg-transparent active:bg-transparent ml-1"
+					class="select select-primary w-full max-w-xs select-sm border-0 rounded-r-full focus:outline-none outline-none focus:bg-transparent bg-transparent active:bg-transparent ml-1"
 				>
 					{#if availableMedicsForCurrentSpeciality.length === 0}
 						<option disabled selected>{unavailableMedics}</option>
@@ -183,9 +184,9 @@
 				</label>
 			</div>
 			<button
-				class={`btn btn-primary rounded-full ${loading ? 'loading' : ''}`}
+				class={`btn btn-primary rounded-full w-full ${loading ? 'loading' : ''}`}
 				disabled={loading}
-				type="submit">Programeaza-te fara cont!</button
+				type="submit">Programeaza-te!</button
 			>
 		</form>
 	</div>
